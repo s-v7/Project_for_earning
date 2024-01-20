@@ -322,3 +322,4 @@ No additional parameters required.
     ```json
 	{ "mensagem": "Fuel deleted successfully" }
     ```
+# Project_for_earning
