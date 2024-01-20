@@ -51,17 +51,17 @@
 
 ```bash
 curl -X GET http://localhost:5000/api/consulta-cep/12345-678
-
+```
 
 #### Logging The API logs debug and error messages for better troubleshooting. Check the application log file (app.log) for details.
 
-## Note: Replace http://localhost:5000 with the actual base URL where your Flask API is hosted.
+### Note: Replace http://localhost:5000 with the actual base URL where your Flask API is hosted.
 
-## Order Management API Documentation
+### Order Management API Documentation
 
-This API provides endpoints for managing orders.
+### This API provides endpoints for managing orders.
 
-## Orders Resource
+### Orders Resource
 
 ### Get Orders
 
@@ -70,8 +70,6 @@ This API provides endpoints for managing orders.
 - **Description:** Retrieve a list of all orders.
 
 #### Request
-
-No additional parameters required.
 
 #### Response
 
@@ -164,7 +162,6 @@ No additional parameters required.
   "mensagem": "Order not found"
 }
 
-
 # Fuel Station Management API Documentation
 
 ## This API provides endpoints for managing fuel inventory at a gas station.
@@ -196,7 +193,6 @@ No additional parameters required.
       ]
     }
     ```
-
 ### Get Single Fuel
 
 - **Endpoint:** `/combustiveis/<int:combustivel_id>`
@@ -322,4 +318,3 @@ No additional parameters required.
     ```json
 	{ "mensagem": "Fuel deleted successfully" }
     ```
-# Project_for_earning
