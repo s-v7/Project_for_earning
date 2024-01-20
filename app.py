@@ -17,8 +17,6 @@ app = Flask(__name__)
 CORS(app)
 api_restful = SwaggerApi(app)
 api = Api(app)
-#api_restful = Api(app)
-
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG)
 # Exemplo de classe de exceção personalizada
@@ -65,7 +63,6 @@ pedidos = [
     {"id": 100, "produto": "Produto Z", "quantidade": 1025, "data_hora": datetime.now().strftime('%Y-%m-%d %H:%M:%S')},
 ]
 
-
 class PedidosResource(Resource):
 
     def get(self):
@@ -97,7 +94,6 @@ class PedidosResource(Resource):
             return jsonify({"mensagem": "Pedido não encontrado"}), 404
 
 
-
 # Configuração do Swagger
 SWAGGER_URL = '/api/docs'
 API_URL = '/api/swagger.json'
@@ -107,19 +103,10 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
     API_URL,
     config={'app_name': "API Documentation"}
 )
-      # Adicione os recursos ao Swagger
-      #api_restful.add_resource(PedidosResource, '/api/pedidos', endpoint='pedidos')
-      #api_restful.add_resource(CombustiveisResource, '/api/combustiveis', endpoint='combustiveis')
-      
 
 @app.route('/api/swagger.json', methods=['GET'])
 def swagger_json():
-    # Lógica para gerar a documentação Swagger em JSON
-    # Pode depender das ferramentas que você está usando para gerar a documentação.
-    # Por exemplo, o Flask-RESTful possui recursos integrados para gerar a documentação Swagger.
-
     return jsonify({"swagger": "2.0", "info": {"title": "API Documentation", "version": "1.0"}})
-
 
 api_restful.add_resource(PedidosResource, '/api/pedidos')
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
@@ -181,9 +168,7 @@ def atualizar_combustivel(combustivel_id):
             	combustivel['valor_total'] = float(combustivel['quantidade']) * float(combustivel['preco'])
             except (ValueError, IndexError) as e:
             	print(f"Erro ao converter valores: {e}")
-            	# Trate a exceção conforme necessário, talvez atribuindo um valor padrão.
-
-            #combustivel['valor_total'] = float(combustivel['quantidade'].split(' ')[0]) * float(combustivel['preco'])
+		    
             combustivel['data_hora'] = data_atual
 
             return jsonify({"mensagem": "Combustível atualizado com sucesso", "combustivel": combustivel}), 200
